@@ -10,6 +10,8 @@ from langchain_core.prompts import PromptTemplate
 from langchain_openai import AzureChatOpenAI
 
 #logging.basicConfig(level=logging.DEBUG)
+AZURE_OPENAI_ENDPOINT= "https://ai-proxy.lab.epam.com"
+AZURE_OPENAI_API_KEY= "4c4213d5397a4e7c966802ff292b8a08"
 
 # Banner Message
 def print_banner():
