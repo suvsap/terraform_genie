@@ -3,7 +3,7 @@ import time
 import base64
 from mimetypes import guess_type
 import streamlit as st
-from openai import AzureOpenAI
+from openai import AzureOpenAI, openai
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import AzureChatOpenAI
 
