@@ -113,8 +113,8 @@ def main():
                     max_tokens=3500
                 )
                 logging.debug("Response received from OpenAI API")
-            with open(save_path, "w", encoding="utf-8") as file:
-                file.write(response.choices[0].message.content)
+                with open(save_path, "w", encoding="utf-8") as file:
+                    file.write(response.choices[0].message.content)
 
             st.write(f"Outline Prompt Has Been Generated And Saved To {save_path}")
             st.session_state.outline_saved = True
