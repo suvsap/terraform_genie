@@ -30,7 +30,7 @@ def print_banner():
     st.markdown(f"```\n{banner}\n```")
 
 # Set a longer timeout value (in seconds)
-openai.api_request_timeout = 300  # Set to 300 seconds or as needed
+openai.api_request_timeout = 900  # Set to 300 seconds or as needed
 
 # Function to encode a local image into data URL 
 def local_image_to_data_url(image_path):
