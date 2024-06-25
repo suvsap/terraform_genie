@@ -116,10 +116,10 @@ def main():
                 with open(save_path, "w", encoding="utf-8") as file:
                     file.write(response.choices[0].message.content)
 
-            st.write(f"Outline Prompt Has Been Generated And Saved To {save_path}")
-            st.session_state.outline_saved = True
-            st.session_state.outline_path = save_path
-        except Exception as e:
+                st.write(f"Outline Prompt Has Been Generated And Saved To {save_path}")
+                st.session_state.outline_saved = True
+                st.session_state.outline_path = save_path
+            except Exception as e:
                 logging.error(f"Error occurred: {e}")
                 st.error(f"Failed to generate outline prompt: {e}")
 
