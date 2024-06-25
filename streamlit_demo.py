@@ -1,7 +1,7 @@
 import os
 import time
 import base64
-import logging
+#import logging
 from mimetypes import guess_type
 import streamlit as st
 from openai import AzureOpenAI
@@ -9,7 +9,7 @@ import openai
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import AzureChatOpenAI
 
-logging.basicConfig(level=logging.DEBUG)
+#logging.basicConfig(level=logging.DEBUG)
 
 # Banner Message
 def print_banner():
@@ -89,8 +89,8 @@ def main():
         save_path = st.text_input("Enter The File Path To Save The Outline Prompt:")
 
         if save_path and st.button("Save Outline Prompt"):
-            try:
-                logging.debug("Sending request to OpenAI API")
+            #try:
+              #  logging.debug("Sending request to OpenAI API")
                 response = client.chat.completions.create(
                     model=deployment_name,
                     messages=[
@@ -112,16 +112,16 @@ def main():
                     ],
                     max_tokens=3500
                 )
-                logging.debug("Response received from OpenAI API")
+                #logging.debug("Response received from OpenAI API")
                 with open(save_path, "w", encoding="utf-8") as file:
                     file.write(response.choices[0].message.content)
 
                 st.write(f"Outline Prompt Has Been Generated And Saved To {save_path}")
                 st.session_state.outline_saved = True
                 st.session_state.outline_path = save_path
-            except Exception as e:
-                logging.error(f"Error occurred: {e}")
-                st.error(f"Failed to generate outline prompt: {e}")
+            #except Exception as e:
+             #   logging.error(f"Error occurred: {e}")
+             #   st.error(f"Failed to generate outline prompt: {e}")
 
     if st.session_state.outline_saved:
         time.sleep(10)
