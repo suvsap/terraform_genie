@@ -90,29 +90,29 @@ def main():
 
         if save_path and st.button("Save Outline Prompt"):
             try:
-            logging.debug("Sending request to OpenAI API")
-            response = client.chat.completions.create(
-                model=deployment_name,
-                messages=[
-                    { "role": "system", "content": "Act as a Prompt Engineer. Help to capture requirements from the diagram. Describe the diagram accurately as outline prompt" },
-                    { "role": "user", "content": [  
-                        { 
-                            "type": "text", 
-                            "text": (
-                                "Act as a Cloud Architect. Describe the diagram in detail. \n"
-                            )
-                        },
-                        { 
-                            "type": "image_url",
-                            "image_url": {
-                                "url": data_url
+                logging.debug("Sending request to OpenAI API")
+                response = client.chat.completions.create(
+                    model=deployment_name,
+                    messages=[
+                        { "role": "system", "content": "Act as a Prompt Engineer. Help to capture requirements from the diagram. Describe the diagram accurately as outline prompt" },
+                        { "role": "user", "content": [
+                            { 
+                                "type": "text", 
+                                "text": (
+                                    "Act as a Cloud Architect. Describe the diagram in detail. \n"
+                                )
+                            },
+                            { 
+                                "type": "image_url",
+                                "image_url": {
+                                    "url": data_url
+                                }
                             }
-                        }
-                    ] } 
-                ],
-                max_tokens=3500
-            )
-            logging.debug("Response received from OpenAI API")
+                        ] } 
+                    ],
+                    max_tokens=3500
+                )
+                logging.debug("Response received from OpenAI API")
             with open(save_path, "w", encoding="utf-8") as file:
                 file.write(response.choices[0].message.content)
 
